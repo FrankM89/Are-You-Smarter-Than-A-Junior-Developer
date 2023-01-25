@@ -1,45 +1,71 @@
+/* Styling for anything not hardcoded for */
 * {
-    box-sizing: border-box;
-    font-family: 'Times New Roman', Times, serif;
+  box-sizing: border-box;
+  font-family: "Times New Roman", Times, serif;
 }
 
-
+/* Styling for the body */
 body {
-
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(209, 173, 114);
 }
 
-
+/* Styling for the quiz container */
 .container {
-
+  width: 900px;
+  height: 50%;
+  max-width: 80%;
+  background-color: #336796;
+  border-radius: 4.5px;
+  padding: 10px;
+  box-shadow: 0 0 1000px 10px;
 }
 
-
+/* Styling for answer buttons */
 .btn-grid {
-
+  display: grid;
+  grid-template-columns: repreat(2), auto;
+  gap: 10px;
+  margin: 20px 0;
 }
 
-
+/* Styling for start/next buttons */
 .btn {
-
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px 10px;
+  color: black;
+  outline: none;
+  font-size: 1rem;
+  background-color: #7bb2e3;
 }
 
+/* Styling for hovering over start/next buttons */
 .btn:hover {
-
+  border-color: #e2bb7b;
 }
 
-
-.start-btn, .next-btn {
-
-
+/* Styling for the inside of start/next buttons */
+.start-btn,
+.next-btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+/* Styling for buttons div */
+.control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
-.contol {
-
-}
-
-
+/* Styling for hidden buttons */
 .hide {
-    
+  display: none;
 }
-

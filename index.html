@@ -5,34 +5,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Linking CSS -->
     <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <!-- Linking JS/ telling browser to load JS last -->
     <script defer src="assets/script.js"></script>
     <title>Are You Smarter Than A Junior Developer</title>
 </head>
 
 <body>
+    <!-- Contains Quiz -->
     <div class="container">
+        <!-- Holds timer -->
         <div id="timer-container">
+            <!-- Holds highscore -->
             <div id="highscore-container">
                 <p>Score:<span id="highscore"></span></p>
             </div>
             <p><span id="timer" class="hide"></span></p>
         </div>
+        <!-- Holds questions -->
         <div id="question-container" class="hide">
             <div id="question">Question
             </div>
             <div id="answer-buttons" class="btn-grid">
             </div>
         </div>
+        <!-- Holds start and next buttons -->
         <div class="contol">
-            <button id="start-btn" classo="start=btn btn">Start</button>
+            <button id="start-btn" class="start-btn btn">Start</button>
             <button id="next-btn" class="next-btn btn hide">Next</button>
         </div>
+        <!-- Holds saved scores -->
         <div id="save-score" class="hide">
+            <!-- Holds input box for initials and for save button  -->
             <div>
                 <label>Initials</label>
                 <input id="initials" type="text" name="initials">
-                <bitton id="save-score-btn">Save</bitton>
+                <button id="save-score-btn">Save</button>
             </div>
         </div>
     </div>
