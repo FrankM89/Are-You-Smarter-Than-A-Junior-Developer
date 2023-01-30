@@ -4,11 +4,11 @@ const questions = [
     question: "Inside which element do you put JavaScript?",
     answers: [
       {
-        text: "",
+        text: "<javscript>",
         correct: false,
       },
       {
-        text: "",
+        text: "<java>",
         correct: false,
       },
       {
@@ -16,7 +16,7 @@ const questions = [
         correct: true,
       },
       {
-        text: "",
+        text: "<jsgoeshere>",
         correct: false,
       },
     ],
@@ -25,11 +25,11 @@ const questions = [
     question: "What is the correct way to write a JavaScript array?",
     answers: [
       {
-        text: "",
+        text: "var colors = ('1:red', '2:yellow', '3:purple')",
         correct: false,
       },
       {
-        text: "",
+        text: "var color = {'blue, red, white'}",
         correct: false,
       },
       {
@@ -37,7 +37,7 @@ const questions = [
         correct: true,
       },
       {
-        text: "",
+        text: "var colors = 'orange', 'pink', 'grey'",
         correct: false,
       },
     ],
@@ -46,11 +46,11 @@ const questions = [
     question: "How does a FOR loop start?",
     answers: [
       {
-        text: "",
+        text: "for i = 1 to 5",
         correct: false,
       },
       {
-        text: "",
+        text: "for (i = 0; i <= 5)",
         correct: false,
       },
       {
@@ -58,7 +58,7 @@ const questions = [
         correct: true,
       },
       {
-        text: "",
+        text: "for (i = 0; i <= 5) ",
         correct: false,
       },
     ],
@@ -67,11 +67,11 @@ const questions = [
     question: "How do you create a function in JavaScript?",
     answers: [
       {
-        text: "",
+        text: "With a cellphone",
         correct: false,
       },
       {
-        text: "",
+        text: "With email",
         correct: false,
       },
       {
@@ -79,7 +79,7 @@ const questions = [
         correct: true,
       },
       {
-        text: "",
+        text: "Yell the function's name until it answers",
         correct: false,
       },
     ],
@@ -88,11 +88,11 @@ const questions = [
     question: "How do you write 'Hello World' in an alert box?",
     answers: [
       {
-        text: "",
+        text: "msgBox('Hello World');",
         correct: false,
       },
       {
-        text: "",
+        text: "msg('Hellow World');",
         correct: false,
       },
       {
@@ -100,7 +100,7 @@ const questions = [
         correct: true,
       },
       {
-        text: "",
+        text: "[Hello World]",
         correct: false,
       },
     ],
@@ -109,11 +109,11 @@ const questions = [
     question: "How do you declare a JavaScript variable?",
     answers: [
       {
-        text: "",
+        text: "v varName",
         correct: false,
       },
       {
-        text: "",
+        text: "I declare varName",
         correct: false,
       },
       {
@@ -121,7 +121,7 @@ const questions = [
         correct: true,
       },
       {
-        text: "",
+        text: "varName = declared",
         correct: false,
       },
     ],
@@ -154,11 +154,11 @@ const questions = [
     question: "How can you add a comment in a JavaScript?",
     answers: [
       {
-        text: "",
+        text: "<!-- This is a comment -->",
         correct: false,
       },
       {
-        text: "",
+        text: "/* This is a comment */",
         correct: false,
       },
       {
@@ -166,7 +166,7 @@ const questions = [
         correct: true,
       },
       {
-        text: "",
+        text: "== This is a comment ==",
         correct: false,
       },
     ],
@@ -196,11 +196,11 @@ const questions = [
     question: "How do you find the number with the highest value of x and y?",
     answers: [
       {
-        text: "",
+        text: "findHighestValue(x, y)",
         correct: false,
       },
       {
-        text: "",
+        text: "Math.ceil(x, y)",
         correct: false,
       },
       {
@@ -208,7 +208,7 @@ const questions = [
         correct: true,
       },
       {
-        text: "",
+        text: "biggestNumber(x, y)",
         correct: false,
       },
     ],
