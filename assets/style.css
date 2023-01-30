@@ -28,7 +28,7 @@ body {
 }
 
 /* Styling for answer buttons */
-.btn-grid {
+.btn_grid {
   display: grid;
   grid-template-columns: repreat(2), auto;
   gap: 10px;
@@ -52,8 +52,8 @@ body {
 }
 
 /* Styling for the inside of start/next buttons */
-.start-btn,
-.next-btn {
+.start_btn,
+.next_btn {
   font-size: 1.5rem;
   font-weight: bold;
   padding: 10px 20px;

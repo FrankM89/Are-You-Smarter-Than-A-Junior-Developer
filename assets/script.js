@@ -1,3 +1,104 @@
+// Variables for questions, answers, buttons, timer and scores
+const startButton = document.getElementbyId("start_btn");
+const nextButton = document.getElementById("next_btn");
+const questionContainerElement = document.getElementById("question_container");
+const questionElement = document.getElementById("question");
+const answerButtonElement = document.getElementById("answer_buttons");
+const timerElement = document.getElementById("timer");
+const saveScoreElement = document.getElementById("save_score");
+const saveScoreButton = document.getElementById("save_score_btn");
+const initialsInput = document.getElementById("initials");
+let shuffledQuestions;
+let currentQuestionIndex = 0;
+let time = 60;
+let timer = time;
+let highScore = 0;
+let lostTime = -5;
+const highScoreElement = document.getElementById("highscore");
+highScoreElement.textContent = highScore;
+let canAnswer = true;
+let timerInterval = null;
+
+
+
+
+// Function ends game, restarts game timer and saves score
+function endGame(timeUp = false) {
+  // Resets timer
+  clearInterval(timerInterval);
+  timerElement.textContent = `Time left: 0 seconds`;
+  startButton.textContent = "Restart";
+  questionContainerElement.classList.add("hide");
+  nextButton.classList.add("hide");
+  startButton.classList.remove("hide");
+  currentQuestionIndex = 0;
+  canAnswer = true;
+  // Game over alert (time up)
+  alert(`${timeUp ? "Time Up! " : ""} Game Over! Your score is: ${highScore}`);
+  // Save score. Initials input
+  saveScoreElement.classList.remove("hide");
+  saveScoreButton.onclick = () => {
+    localStorage.setItem(
+      "highschore",
+      `highScore : ${highScore} initials : ${initialsInput.value}`
+    );
+  };
+  return false;
+}
+
+// Function to start game
+function startGame() {
+  timer = time;
+  timerElement.classList.remove("hide");
+  startButton.classList.add("hide");
+  timerElement.textContent = `Time left: ${timer} seconds`;
+  highScore = 0;
+  highScoreElement.textContent = highScore;
+  shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+  currentQuestionIndex = 0;
+  questionContainerElement.classList.remove("hide");
+
+  // Function for game timer
+  function updateTimer() {
+    timer--;
+    // Ends game when timer is up
+    if (timer < 1) {
+      endGame(true);
+    }
+    console.log(timer);
+    timerElement.textContent = `Time left: ${timer} seconds`;
+  }
+  // Sets timer intervals for 1000 milliseconds (1 second)
+  timerInterval = setInterval(updateTimer, 1000);
+  setNextQuestion();
+}
+// Listens for click to start game or go to next question
+startButton.addEventListener("click", startGame);
+nextButton.addEventListener("click", () => {
+  if (currentQuestionIndex < questions.length -1) {
+    currentQuestionIndex++;
+    console.log(currentQuestionIndex);
+    setNextQuestion();    
+  } else {
+    endGame();
+  }
+});
+
+
+function setNextQuestion() {
+  resetState();
+  showQuestion(shuffledQuestions[currentQuestionIndex]);
+}
+
+
+
+
+
+
+
+
+
+
 // Questions and answers array
 const questions = [
   {
