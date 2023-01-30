@@ -24,20 +24,29 @@ let timerInterval = null;
 
 // Function ends game, restarts game timer and saves score
 function endGame(timeUp = false) {
-  // Resets timer
+  // Clear the timer interval to stop the timer
   clearInterval(timerInterval);
+  // Sets text content of the timer element to display 0 seconds
   timerElement.textContent = `Time left: 0 seconds`;
+  // Changes start button to 'Restart' button
   startButton.textContent = "Restart";
+  // Hides question container
   questionContainerElement.classList.add("hide");
+  // Hides next button after end game
   nextButton.classList.add("hide");
+  // Shows start button after game ends to replay
   startButton.classList.remove("hide");
+  // Resets question index to =
   currentQuestionIndex = 0;
+  // Resets canAnswer flag to true
   canAnswer = true;
   // Game over alert (time up)
   alert(`${timeUp ? "Time Up! " : ""} Game Over! Your score is: ${highScore}`);
-  // Save score. Initials input
+  // Shows save score element
   saveScoreElement.classList.remove("hide");
+  // click event listener to save score button
   saveScoreButton.onclick = () => {
+    // Saves information to local storage
     localStorage.setItem(
       "highschore",
       `highScore : ${highScore} initials : ${initialsInput.value}`
@@ -46,16 +55,23 @@ function endGame(timeUp = false) {
   return false;
 }
 
-// Function to start game
+// Function to start game by initializing variables
 function startGame() {
+  // Sets timer to specified time (60 seconds)
   timer = time;
+  // Makes timer visible
   timerElement.classList.remove("hide");
+  // Hides start button
   startButton.classList.add("hide");
+  // Displays time left
   timerElement.textContent = `Time left: ${timer} seconds`;
+  // Resets high score to 0
   highScore = 0;
   highScoreElement.textContent = highScore;
+  // Shuffles questions array
   shuffledQuestions = questions.sort(() => Math.random() - 0.5);
   currentQuestionIndex = 0;
+  // Shows question
   questionContainerElement.classList.remove("hide");
 
   // Function for game timer
@@ -75,16 +91,21 @@ function startGame() {
 // Listens for click to start game or go to next question
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
+  // If the current question is not the last question
   if (currentQuestionIndex < questions.length -1) {
+    // Increment the current question index
     currentQuestionIndex++;
+    // Logs current question index
     console.log(currentQuestionIndex);
+    // Sets next question
     setNextQuestion();    
   } else {
+    // Ends game after last question in queston index is answered
     endGame();
   }
 });
 
-
+// Function resets state and displays next question in shuffledQuestions array
 function setNextQuestion() {
   resetState();
   showQuestion(shuffledQuestions[currentQuestionIndex]);
