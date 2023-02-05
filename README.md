@@ -20,12 +20,13 @@ Test your smarts against a Junior Developer!
       
 ## Website
   <ul>
-      <li> <a href="">Are You Smarter Than A Junior Developer</a></li>
+      <li> <a href="https://frankm89.github.io/Are-You-Smarter-Than-A-Junior-Developer/">Are You Smarter Than A Junior Developer</a></li>
   </ul>
   
 ## Screenshots
-
-
+<img width="1276" alt="Screenshot_20230204_074731" src="https://user-images.githubusercontent.com/114839168/216801238-fb0cfd09-6385-4429-bf7b-42c3cd9f8d0e.png">
+<img width="1276" alt="Screenshot_20230204_074752" src="https://user-images.githubusercontent.com/114839168/216801251-ff0b17fa-0141-4bb8-a2d7-b9a4711a6393.png">
+<img width="1277" alt="Screenshot_20230204_074710" src="https://user-images.githubusercontent.com/114839168/216801250-42f14028-a5f2-49b3-9a11-aeb221bf256c.png">
 
 ## License
 
