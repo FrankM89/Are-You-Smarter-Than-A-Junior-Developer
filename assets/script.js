@@ -1,5 +1,5 @@
 // Variables for questions, answers, buttons, timer and scores
-const startButton = document.getElementbyId("start_btn");
+const startButton = document.getElementById("start_btn");
 const nextButton = document.getElementById("next_btn");
 const questionContainerElement = document.getElementById("question_container");
 const questionElement = document.getElementById("question");
@@ -18,9 +18,6 @@ const highScoreElement = document.getElementById("highscore");
 highScoreElement.textContent = highScore;
 let canAnswer = true;
 let timerInterval = null;
-
-
-
 
 // Function ends game, restarts game timer and saves score
 function endGame(timeUp = false) {
@@ -92,13 +89,13 @@ function startGame() {
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
   // If the current question is not the last question
-  if (currentQuestionIndex < questions.length -1) {
+  if (currentQuestionIndex < questions.length - 1) {
     // Increment the current question index
     currentQuestionIndex++;
     // Logs current question index
     console.log(currentQuestionIndex);
     // Sets next question
-    setNextQuestion();    
+    setNextQuestion();
   } else {
     // Ends game after last question in queston index is answered
     endGame();
@@ -111,14 +108,102 @@ function setNextQuestion() {
   showQuestion(shuffledQuestions[currentQuestionIndex]);
 }
 
+// Displays a question and its answers on the page
+function showQuestion(question) {
+  // Sets the text conent of the question
+  questionElement.innerText = question.question;
+  // Loops through each answer of the question
+  question.answers.forEach((answer) => {
+    // Creates button element
+    const button = document.createElement("button");
+    // Sets the text content of the button to the answer text
+    button.innerText = answer.text;
+    // Adds the "btn" class to the button
+    button.classList.add("btn");
+    // If statement checks for the correct answer
+    if (answer.correct) {
+      button.dataset.correct = answer.correct;
+    }
+    setStatusClass(button, button.dataset.correct);
+    // Adds click event listener to call the selectAnswer function
+    button.addEventListener("click", selectAnswer);
+    // Appends button to the answerButtonElement
+    answerButtonElement.appendChild(button);
+  });
+}
+// Resets the state of the quiz
+function resetState() {
+  // Clears status class from the body element
+  clearStatusClass(document.body);
+  // Add the "hide" class to the nextButton element
+  nextButton.classList.add("hide");
+  // Loops through and removes all the answer butttons from answerButtonElement
+  while (answerButtonElement.firstChild) {
+    answerButtonElement.removeChild(answerButtonElement.firstChild);
+  }
+  // Sets canAnswer back to true
+  canAnswer = true;
+}
 
 
+// Function handles the answer selection by the user
+function selectAnswer(element) {
+  // Gets the selected button element
+  const selectedButton = element.target;
+  // Gets the correct status from the selected button's "correct" data attribute
+  const correct = selectedButton.dataset.correct;
+  // Sets the status class on the body element based on whether the answer is correct or not
+  setStatusClass(document.body, correct);
+  // Checks if user can still answer
+  if (canAnswer) {
+    // If answer is correct
+    if (selectedButton.dataset.correct) {
+      // Increment score by 1
+      highScore += 1;
+      // Updates high score
+      highScoreElement.textContent = highScore;
+    } else {
+      // Decreases timer by 5 seconds
+      timer = Math.max(0, timer - 5);
+      console.log(timer);
+      // Decrement the score by 1
+      highScore -= 1;
+      // Updates highScoreElement with new high score
+      highScoreElement.textContent = highScore;
+    }
+  }
+  // Prevents user from answering same question again in same game
+  canAnswer = false;
+  console.log("click");
+  // Checks for more questions to be displayed
+  if (questions.length > currentQuestionIndex + 1) {
+    // If the user can answer more questions, removed "hide" class from nextButton
+    nextButton.classList.remove("hide");
+  } else {
+    // Calls end game function if there are no more questions to be answered
+    endGame();
+  }
+}
 
 
+function setStatusClass(element, correct) {
+  clearStatusClass(element);
+  // If the answer is correct, adds the "correct" class to the element
+  if (correct) {
+    element.classList.add("correct");
+  } else {
+    // If the answer is wrong, add the "wrong" class to the element
+    element.classList.add("wrong");
+  }
+}
 
-
-
-
+//  Removes status classes (correct and wrong) from an element
+function clearStatusClass(element) {
+  // Removes the "correct" class from the element
+  element.classList.remove("correct");
+  // Removes the "wrong" class from the element
+  element.classList.remove("wrong");
+}
 
 // Questions and answers array
 const questions = [
@@ -250,24 +335,22 @@ const questions = [
   },
   {
     question:
-      "What is the correct JavaScript syntax to change the content of the HTML element below?" <
-      br >
-      "<p id='demo'>This is a demonstration.</p>",
+      "Which event occurs when the user clicks on an HTML element?",
     answers: [
       {
-        text: "#demo.innerHTML = 'Hello World!;",
+        text: "onchange",
         correct: false,
       },
       {
-        text: "document.getElementByName('p').innerHTML = 'Hello World!';",
+        text: "onmouseclick",
         correct: false,
       },
       {
-        text: "document.getElementById('demo').innerHTML = 'Hello World!';",
+        text: "onclick",
         correct: true,
       },
       {
-        text: "document.getElement('p').innerHTML = 'Hello World!';",
+        text: "onmouseover",
         correct: false,
       },
     ],
