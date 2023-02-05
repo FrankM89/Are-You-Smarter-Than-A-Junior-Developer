@@ -30,4 +30,4 @@ Test your smarts against a Junior Developer!
 
 ## License
 
-All code in this repository is licensed by MIT License ( <a href="https://github.com/FrankM89/Are-You-Smarter-Than-A-Junior-Developer/blob/main/LICENSE">LICENSE-MIT</a> )
+All code in this repository is licensed by MIT License ( <a href="https://github.com/FrankM89/Are-You-Smarter-Than-A-Junior-Developer/blob/master/LICENSE">LICENSE-MIT</a> )
